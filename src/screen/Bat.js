@@ -141,7 +141,7 @@ class Bat extends Component
 
         this.props.store.save_vars();
 
-        this.setState( {"out":"开始处理"} );
+        this.setState( {"out":"开饭"} );
         
         // do_process
         const store = this.props.store;
