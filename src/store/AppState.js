@@ -38,7 +38,7 @@ class AppState
             "model":"选择模型",
             "upload_file":"选择文件",
             "paste_text":"粘贴文本",
-            "begin_process":"开始处理",
+            "begin_process":"开饭",
             "segment":"段",
             "about":"约",
             "key_settings_title":"设置OpenAI",
