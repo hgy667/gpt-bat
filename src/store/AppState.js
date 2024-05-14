@@ -13,7 +13,7 @@ class AppState
     @observable split_char = '\\n---\\n';  
 
     @observable system_prompt = "请帮我将以下文本翻译成中文。请只返回翻译内容，不包括原文。";    
-    @observable user_prompt = "（填写咒语，没有请删除）";    
+    @observable user_prompt = "{$content}";    
     @observable max_tokens = 1000;    
     @observable temperature = 0.1;    
     @observable upload_tokens_count = 0;    
