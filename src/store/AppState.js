@@ -7,13 +7,13 @@ const APP_VAR_PREFIX = "GPTBAT_";
 
 class AppState
 {
-    @observable appname = "GPT::BAT";    
+    @observable appname = "独众科技";    
     @observable split_type = "lengthAndLine";    
     @observable split_length = 4000;    
     @observable split_char = '\\n---\\n';  
 
-    @observable system_prompt = "Please help me to translate the following text to Chinese. Please return only translated content not include the origin text.";    
-    @observable user_prompt = "{$content}";    
+    @observable system_prompt = "请帮我将以下文本翻译成中文。请只返回翻译内容，不包括原文。";    
+    @observable user_prompt = "（填写咒语，没有请删除）";    
     @observable max_tokens = 1000;    
     @observable temperature = 0.1;    
     @observable upload_tokens_count = 0;    
@@ -35,16 +35,16 @@ class AppState
             "split_char":"分隔符，支持正则",
             "system_prompt":"System 提示词",
             "user_prompt":"User 提示词",
-            "model":"模型",
+            "model":"选择模型",
             "upload_file":"选择文件",
             "paste_text":"粘贴文本",
             "begin_process":"开始处理",
             "segment":"段",
             "about":"约",
-            "key_settings_title":"设置OpenAI/ Forward Key",
-            "key_settings_key":"请输入OpenAI/Forward KEY: sk-xxx/fkxxx",
+            "key_settings_title":"设置OpenAI",
+            "key_settings_key":"请输入OpenAI: sk-xxx/fkxxx",
             "key_settings_url":"请输入API地址，如无需代理可留空",
-            "key_settings_apply":"申请Forward Key · 可微信充值",
+            "key_settings_apply":"复制自己的apikey",
             "content_settings_title":"粘贴内容",
             "content_settings_content":"请将内容粘贴到这里",
         },
@@ -66,10 +66,10 @@ class AppState
             "begin_process": "Process",
             "segment": "Segments",
             "about": "About",
-            "key_settings_title": "Set OpenAI/Forward Key",
-            "key_settings_key": "Please enter OpenAI/Forward KEY: sk-xxx/fkxxx",
+            "key_settings_title": "Set OpenAI",
+            "key_settings_key": "Please enter OpenAI: sk-xxx/fkxxx",
             "key_settings_url": "Please enter API address, leave blank if no proxy is needed",
-            "key_settings_apply": "Apply for Forward Key · WeChat recharge available",
+            "key_settings_apply": "Copy your own apikey",
             "content_settings_title":"Paste Content",
             "content_settings_content":"Please paste the content here",
         }

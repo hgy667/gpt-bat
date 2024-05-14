@@ -134,7 +134,7 @@ class Bat extends Component
         
         if( this.props.store.openai_key.trim().length == 0 )
         {
-            toast("请先设置OpenAI/API2D Key");
+            toast("请先设置接口和key");
             this.setState( {"open_dialog":true} );
             return;
         }
@@ -241,7 +241,7 @@ class Bat extends Component
         const main = <div className="flex flex-row justify-between border rounded  p-10 mt-10 editor">
             <div className="left w-1/2">
 
-            <div className="text-xl text-blue-500">GPT::BAT</div>
+            <div className="text-xl text-blue-500">独众科技</div>
             <div className="text-lg mb-5 text-gray-400">{store.i18n[this.state.lang]?.subtitle}</div>
             
             <SingleSelectLine onChange={()=>this.spliting(this.content)} field="split_type" className="mt-2" label={store.i18n[this.state.lang]?.split_type} options={[
@@ -260,13 +260,17 @@ class Bat extends Component
 
             <div className="flex flex-row justify-between">
 
-            <TextLine field="max_tokens" className="mt-2 mr-2 w-16" placeholder="" label="Max Tokens" />   
-            <TextLine field="temperature" className="mt-2 mr-2 w-16" placeholder="" label="Temperature" />   
+            <TextLine field="max_tokens" className="mt-2 mr-2 w-16" placeholder="" label="最大Tokens" />   
+            <TextLine field="temperature" className="mt-2 mr-2 w-16" placeholder="" label="温度" />   
             <SingleSelectLine field="model" className="mt-3" label={store.i18n[this.state.lang]?.model} 
             menuPlacement='top'
             options={[
-                {value:"gpt4",label:"GPT4"},
-                {value:"gpt-3.5-turbo",label:"GPT3.5"},
+                {value:"gpt-3.5-turbo",label:"gpt-3.5-turbo"},
+                {value:"gpt-3.5-turbo-16k-0613",label:"gpt-3.5-turbo-16k-0613"},
+                {value:"gpt4",label:"gpt4"},
+                {value:"gpt-4-0613",label:"gpt-4-0613"},
+                {value:"gpt-4o",label:"gpt-4o"},
+                {value:"gpt-4-turbo",label:"gpt-4-turbo"},
             ]} /> 
 
             </div>
@@ -298,7 +302,7 @@ class Bat extends Component
             <div className="mt-8 flex flex-row justify-between border-t pt-8">
 
 
-            <Button large={true} icon="key" className="" onClick={()=>this.setState({"open_dialog":!this.state.open_dialog})} text="OpenAI/API2D Key" />
+            <Button large={true} icon="key" className="" onClick={()=>this.setState({"open_dialog":!this.state.open_dialog})} text="设置接口和key" />
 
             {this.props.store.count_token == "yes" ? <Button large={true} text="预估Token" onClick={()=>this.toggle_token()} active={true} /> :<Button large={true} text="预估Token" onClick={()=>this.toggle_token()} />}
 
@@ -313,11 +317,10 @@ class Bat extends Component
 
             <div className="text-gray-400 px-2 mt-5">PS: 由于浏览器限制存储，文本请不要超过10M (Edge/Chrome) 或者 5M( Safari )</div>
 
-            <div className="text-gray-400 px-2 mt-5">🎈 Made by <a href="https://github.com/easychen" rel="noreferrer" target="_blank">EasyChen</a> · <a href="https://a.ftqq.com/2023/04/19/gptbat/" target="_blank" rel="noreferrer">使用教程</a> · <a href="https://github.com/easychen/gpt-bat" target="_blank" rel="noreferrer">源代码</a></div>
-
+            
             </div>
             <div className="right w-1/2">
-                <div className="log p-2 text-lg bg-blue-100">{this.props.store.lists?.length} {store.i18n[this.state.lang]?.segment}
+                <div className="log p-2 text-lg bg-blue-100">{"分割为"}{this.props.store.lists?.length} {store.i18n[this.state.lang]?.segment}
                 
                  { this.props.store.count_token == "yes" ? <> {store.i18n[this.state.lang]?.about} {(parseInt(this.props.store.upload_tokens_count/100)+1)*100} Tokens</>  : null }
                 
@@ -331,7 +334,7 @@ class Bat extends Component
                 <div className="p-5 mt-2">
                 <TextLine field="openai_key" placeholder={store.i18n[this.state.lang]?.key_settings_key} />
                 <TextLine field="openai_api_url" placeholder={store.i18n[this.state.lang]?.key_settings_url} />
-                <SubmitLine onSubmit={()=>this.save_key()} cancel={<AnchorButton large={true} icon="key" href="https://api2d.com/r/186008" target="_blank">{store.i18n[this.state.lang]?.key_settings_apply}</AnchorButton>} />
+                <SubmitLine onSubmit={()=>this.save_key()} cancel={<AnchorButton large={true} icon="key" href="https://platform.openai.com/api-keys" target="_blank">{store.i18n[this.state.lang]?.key_settings_apply}</AnchorButton>} />
 
                 </div>
                 </Dialog>
